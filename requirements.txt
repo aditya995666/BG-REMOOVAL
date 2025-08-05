@@ -2,4 +2,3 @@ rembg
 Image
 flask
 onnxruntime
-os
