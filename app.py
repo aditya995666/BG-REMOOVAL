@@ -14,7 +14,7 @@ os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 @app.route('/')
 def index():
     print("✅ API Status Checked")
-    return "Background Removal API is running!"
+    return "🎯 Background Removal API is running!"
 
 @app.route('/remove-bg', methods=['POST'])
 def remove_bg():
@@ -62,6 +62,9 @@ def remove_bg():
         print(f"🔥 ERROR: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
+# ✅ Render.com Port Binding Fix
 if __name__ == '__main__':
-    print("🚀 Starting Flask app...")
-    app.run(debug=True)
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    print(f"🚀 Starting Flask app on port {port}...")
+    app.run(host='0.0.0.0', port=port, debug=True)
