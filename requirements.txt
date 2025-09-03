@@ -2,3 +2,5 @@ rembg
 Image
 flask
 onnxruntime
+gunicorn
+google-cloud-storage
