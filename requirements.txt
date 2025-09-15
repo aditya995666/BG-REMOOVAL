@@ -4,3 +4,4 @@ flask
 onnxruntime
 gunicorn
 google-cloud-storage
+flask-cors
