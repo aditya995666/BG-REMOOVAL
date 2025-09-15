@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, url_for
 from werkzeug.middleware.proxy_fix import ProxyFix
 from werkzeug.utils import secure_filename
+from flask_cors import CORS  # <-- Added for CORS
 
 from rembg import remove, new_session
 from PIL import Image
@@ -15,6 +16,7 @@ except Exception:
     storage = None
 
 app = Flask(__name__, static_folder="static", static_url_path="/static")
+CORS(app)  # <-- Enable CORS globally
 app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
 
 # Config
